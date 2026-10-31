@@ -25,13 +25,13 @@ public class UsuarioDataLoader implements CommandLineRunner {
     public void run(String... args) {
 
         crearSiNoExiste("Fernando", "guitarrista_pro",
-                "fernando@sonora.cl", "ClaveMusical#2026", "USUARIO");
+                "fernando@sonora.cl", "123456", "USUARIO");
 
         crearSiNoExiste("Camila", "baterista",
-                "camila@sonora.cl", "Bateria#2026", "USUARIO");
+                "camila@sonora.cl", "123456", "USUARIO");
 
         crearSiNoExiste("Administrador", "admin",
-                "admin@sonora.cl", "Admin#2026", "ADMIN");
+                "admin@sonora.cl", "123456", "ADMIN");
     }
 
     private void crearSiNoExiste(
@@ -44,8 +44,7 @@ public class UsuarioDataLoader implements CommandLineRunner {
         if (usuarioRepository.findByCorreo(correo).isEmpty()) {
 
             Usuario usuario = new Usuario(
-                    nombre, nickname, correo, password, rol
-            );
+                    nombre, nickname, correo, password, rol);
 
             usuarioService.crearUsuario(usuario);
         }
