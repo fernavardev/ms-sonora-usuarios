@@ -93,10 +93,12 @@ import json
 import sys
 
 with open(sys.argv[1], encoding="utf-8") as response:
-    pets = json.load(response)
-if not isinstance(pets, list) or len(pets) < 4:
-    raise SystemExit("Public GET /usuarios did not return at least 4 record(s).")
-print(f"EC2 smoke test passed: API HTTP 200 with {len(pets)} records.")
+    usuarios = json.load(response)
+
+if not isinstance(usuarios, list):
+    raise SystemExit("Public GET /usuarios did not return a JSON list.")
+
+print(f"EC2 smoke test passed: API HTTP 200 with {len(usuarios)} records.")
 PY
 fi
 

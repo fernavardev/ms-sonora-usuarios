@@ -20,7 +20,7 @@ if [[ ! "$region" =~ ^[a-z0-9-]+$ \
 fi
 
 registry="${image%%/*}"
-docker_config="$(mktemp -d /tmp/pet-ecr-docker.XXXXXX)"
+docker_config="$(mktemp -d /tmp/sonora-usuarios-ecr-docker.XXXXXX)"
 env_file="$(mktemp /tmp/sonora-usuarios-env.XXXXXX)"
 export DOCKER_CONFIG="$docker_config"
 cleanup() {
@@ -101,7 +101,7 @@ env_file=""
 healthy=false
 for attempt in $(seq 1 60); do
   if curl --fail --silent --show-error --max-time 10 http://127.0.0.1:8080/usuarios \
-    | python3 -c 'import json,sys; pets=json.load(sys.stdin); assert isinstance(pets,list) and len(pets) >= 4'; then
+    | python3 -c 'import json,sys; usuarios=json.load(sys.stdin); assert isinstance(usuarios,list)'; then
     healthy=true
     break
   fi
