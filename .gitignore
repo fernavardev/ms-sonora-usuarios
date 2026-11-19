@@ -1,0 +1,23 @@
+﻿# Oracle Wallet y credenciales
+wallet/
+*.sso
+*.p12
+*.jks
+*.pem
+*.key
+.env
+.env.*
+!.env.example
+
+# Compilacion Java
+target/
+*.class
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Sistema operativo
+.DS_Store
+Thumbs.db

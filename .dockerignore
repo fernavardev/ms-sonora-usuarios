@@ -1,0 +1,22 @@
+# Archivos generados
+target/
+.git/
+.github/
+.idea/
+.vscode/
+
+# Configuracion local
+.env
+.env.*
+!.env.example
+
+# Oracle Wallet
+wallet/
+Wallet_*/
+*.sso
+*.p12
+*.jks
+
+# Archivos temporales
+*.log
+*.tmp
