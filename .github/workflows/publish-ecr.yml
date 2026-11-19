@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - feature/sonora-aws
 
 permissions:
   contents: read
@@ -16,7 +16,7 @@ concurrency:
 jobs:
   publish:
     name: Test and publish API image
-    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+    if: github.ref == 'refs/heads/feature/sonora-aws'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
@@ -120,7 +120,7 @@ jobs:
   deploy-ec2:
     name: Deploy API to EC2 through Systems Manager
     needs: publish
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/feature/sonora-aws'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     concurrency:
