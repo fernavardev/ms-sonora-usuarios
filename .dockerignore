@@ -9,6 +9,7 @@ target/
 .env
 .env.*
 !.env.example
+run-local.ps1
 
 # Oracle Wallet
 wallet/

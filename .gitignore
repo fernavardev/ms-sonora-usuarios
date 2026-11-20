@@ -6,6 +6,7 @@ wallet/
 *.pem
 *.key
 .env
+run-local.ps1
 .env.*
 !.env.example
 
