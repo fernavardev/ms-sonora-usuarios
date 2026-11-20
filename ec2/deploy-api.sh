@@ -100,7 +100,7 @@ env_file=""
 
 healthy=false
 for attempt in $(seq 1 60); do
-  if curl --fail --silent --show-error --max-time 10 http://127.0.0.1:8080/usuarios \
+  if curl --fail --silent --show-error --max-time 10 http://127.0.0.1:8080/api/usuarios \
     | python3 -c 'import json,sys; usuarios=json.load(sys.stdin); assert isinstance(usuarios,list)'; then
     healthy=true
     break
